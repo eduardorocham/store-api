@@ -24,6 +24,12 @@ class Services {
       }
     });
   }
+
+  async deleteRegister(id) {
+    return dataSource[this.modelName].destroy({
+      where: { id: id }
+    });
+  }
 }
 
 module.exports = Services;

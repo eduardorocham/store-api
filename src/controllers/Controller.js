@@ -54,6 +54,19 @@ class Controller {
       return res.status(500).json({ message: `Server interanl error: ${error}` });
     }
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    try {
+      await this.entityService.deleteRegister(id);
+      return res.status(200).json({
+        message: `${this.entity} deleted with success!`
+      });
+    } catch(error) {
+      return res.status(500).json({ message: `Server interanl error: ${error}` });
+    }
+  }
 }
 
 module.exports = Controller;

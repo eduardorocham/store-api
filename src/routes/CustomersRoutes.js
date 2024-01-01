@@ -6,5 +6,6 @@ const customersController = new CustomersController();
 const router = Router();
 
 router.get('/customers', (req, res) => customersController.getAll(req, res));
+router.get('/customers/:id', (req, res) => customersController.getOneById(req, res));
 
 module.exports = router;

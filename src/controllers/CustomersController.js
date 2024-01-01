@@ -5,7 +5,7 @@ const customerService = new CustomersService();
 
 class CustumersController extends Controller {
   constructor() {
-    super(customerService);
+    super(customerService, 'customer');
   }
 }
 

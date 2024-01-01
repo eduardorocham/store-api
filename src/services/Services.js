@@ -16,6 +16,14 @@ class Services {
   async createNewRegister(registerData) {
     return dataSource[this.modelName].create(registerData);
   }
+
+  async updateRegister(id, updateData) {
+    return dataSource[this.modelName].update(updateData, {
+      where: {
+        id: id
+      }
+    });
+  }
 }
 
 module.exports = Services;

@@ -1,3 +1,5 @@
+const DontFound = require('../errors/DontFound');
+
 class Controller {
   constructor(entityService, entity) {
     this.entityService = entityService;
@@ -13,12 +15,17 @@ class Controller {
     }
   }
 
-  async getOneById(req, res) {
+  async getOneById(req, res, next) {
     const { id } = req.params;
 
     try {
       const register = await this.entityService.getRegisterById(Number(id));
-      return res.status(200).json(register);
+      
+      if (register !== null) {
+        return res.status(200).json(register);
+      } else {
+        next(new DontFound(`${this.entity} with id ${id} don't found`));
+      } 
     } catch(error) {
       return res.status(500).json({ message: `Server interanl error: ${error}` });
     }

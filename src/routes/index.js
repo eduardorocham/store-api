@@ -3,6 +3,7 @@ const customersRoutes = require("./CustomersRoutes.js");
 const categoriesRoutes = require("./CategoriesRoutes.js");
 const productsRoutes = require("./ProductsRoutes.js");
 const ordersRoutes = require("./OrdersRoutes.js");
+const orderItemsRoutes = require("./OrderItemsRoutes.js");
 
 module.exports = (app) => {
   app.use(
@@ -10,6 +11,7 @@ module.exports = (app) => {
     customersRoutes,
     categoriesRoutes,
     productsRoutes,
-    ordersRoutes
+    ordersRoutes,
+    orderItemsRoutes
   );
 };

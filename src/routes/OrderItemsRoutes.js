@@ -5,11 +5,11 @@ const orderItemsController = new OrderItemsController();
 const router = Router();
 
 router.get("/orderItems", (req, res) => orderItemsController.getAll(req, res));
-router.get("/orderItems/:id", (req, res) =>
-  orderItemsController.getOneById(req, res)
+router.get("/orderItems/:id", (req, res, next) =>
+  orderItemsController.getOneById(req, res, next)
 );
-router.post("/orderItems", (req, res) =>
-  orderItemsController.createNew(req, res)
+router.post("/orderItems", (req, res, next) =>
+  orderItemsController.createNew(req, res, next)
 );
 router.put("/orderItems/:id", (req, res) =>
   orderItemsController.update(req, res)

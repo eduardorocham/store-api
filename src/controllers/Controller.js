@@ -27,7 +27,7 @@ class Controller {
         next(new DontFound(`${this.entity} with id ${id} don't found`));
       } 
     } catch(error) {
-      return res.status(500).json({ message: `Server interanl error: ${error}` });
+      return res.status(500).json({ message: `Server internal error: ${error}` });
     }
   }
 

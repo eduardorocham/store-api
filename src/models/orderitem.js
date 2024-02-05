@@ -13,7 +13,15 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order_Item.init(
     {
-      quantity: DataTypes.INTEGER,
+      quantity: {
+        type: DataTypes.INTEGER,
+        validate: {
+          isInt: {
+            args: true,
+            msg: "quantity must be a integer",
+          },
+        },
+      },
     },
     {
       sequelize,

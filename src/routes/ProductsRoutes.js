@@ -5,7 +5,9 @@ const productsController = new ProductsController();
 
 const router = Router();
 
-router.get("/products", (req, res) => productsController.getAll(req, res));
+router.get("/products", (req, res, next) =>
+  productsController.getProducts(req, res, next)
+);
 router.get("/products/:id", (req, res, next) =>
   productsController.getOneById(req, res, next)
 );

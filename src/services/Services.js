@@ -5,8 +5,19 @@ class Services {
     this.modelName = modelName;
   }
 
-  async getAllRegisters(where = {}) {
-    return dataSource[this.modelName].findAll({ where: { ...where } });
+  async getCountRegisters() {
+    return dataSource[this.modelName].count();
+  }
+
+  async getAllRegisters(where = {}, page, limit) {
+    const offset = page * limit - limit;
+
+    return dataSource[this.modelName].findAll({
+      where: { ...where },
+      order: [["id", "DESC"]],
+      offset,
+      limit,
+    });
   }
 
   async getRegisterById(id) {

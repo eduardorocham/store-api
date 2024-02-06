@@ -4,7 +4,9 @@ const OrderItemsController = require("../controllers/OrdersItemsController.js");
 const orderItemsController = new OrderItemsController();
 const router = Router();
 
-router.get("/orderItems", (req, res) => orderItemsController.getAll(req, res));
+router.get("/orderItems", (req, res, next) =>
+  orderItemsController.getOrdersItems(req, res, next)
+);
 router.get("/orderItems/:id", (req, res, next) =>
   orderItemsController.getOneById(req, res, next)
 );

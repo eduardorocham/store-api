@@ -5,7 +5,7 @@ const ordersController = new OrdersController();
 
 const router = Router();
 
-router.get("/orders", (req, res) => ordersController.getAll(req, res));
+router.get("/orders", (req, res) => ordersController.getOrders(req, res));
 router.get("/orders/:id", (req, res, next) =>
   ordersController.getOneById(req, res, next)
 );
